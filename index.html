@@ -1,0 +1,111 @@
+<!-- Simple Timer -->
+<!-- Students: Your work lies in the last script tag -->
+
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Fresh Prince of Bel Air Trivia Game</title>
+
+  </head>
+
+  <body>
+  <h1>Fresh Prince of Bel Air Trivia Game <button id="start_button">Click to start now!</button></h1>
+
+    <div id="time-left"></div>
+    
+    <div id="question">
+      <p>Who played the Fresh Prince in the Fresh Prince of Bel Air? </p>
+       </br>  
+       <button class="right"> Will Smith </button> 
+       </br> <button class="wrong"> Denzel Washington </button> 
+       </br> <button class= "wrong"> Chris Brown </button>
+
+       </br>
+       </br>
+       <p>What is the name of butler on Fresh Prince of Bel Air? </p> 
+       </br>  <button class="right"> Jeffery </button> 
+       </br> <button class="wrong"> Winters </button> 
+       </br> <button class= "wrong"> Jake </button>
+
+       </br>
+       </br>
+       <p>What is the occupation of the Fresh Prince of Bel Air's uncle? </p> 
+       </br>  <button class="right"> Judge </button> 
+       </br> <button class="wrong"> Teacher </button> 
+       </br> <button class= "wrong"> Baker </button>
+    </div>
+
+
+    <div id="results"></div>
+
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <script>
+
+      
+      setTimeout(timeUp, 10000);
+      timer();
+      
+
+
+
+        var win = 0;
+        var losses = 0;
+        
+
+        $("#start_button").click(function(){
+                $(this).hide();
+                var counter = setInterval(timer, 10000); 
+                });
+
+        function timer(){
+                var count= 10;
+                          count--;
+                          if (count >= 0) {
+                           clearInterval(counter);
+                           return;
+                          }
+
+                           $("#time-left").html("Time remaining: " + "00:0" + count + " secs");
+                          }
+
+          $(".right").on("click", function(event) {
+              win++;
+              $("#results").html("<h2> You have answered " + win + " out of 3 correctly.</h2>");
+            });
+
+             
+
+        $(".wrong").on("click", function(event) {
+              
+              alert( "Sorry, you have answered incorrectly.");
+            });
+        
+
+
+
+      function timeUp() {
+
+        // in the element with an id of time-left add an h2 saying Time's Up!
+        $("#time-left").append("<h2>Time's Up! (Results are displayed below, see how you scored!)</h2>");
+        // console log 10 seconds left
+        console.log("Done")
+      }
+
+
+       
+
+      
+    </script>
+
+  </body>
+
+</html>
+
